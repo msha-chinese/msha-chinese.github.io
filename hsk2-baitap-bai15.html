@@ -10,8 +10,8 @@
   --slate:#43637E;--slate-lt:#5A7B96;
   --teal:#65DCD5;--teal-dk:#3EC4BC;--teal-txt:#1A5C57;
   --mint:#D9FFF4;
-  --green:#27AE60;--green-lt:#D5F5E3;--green-dk:#1E8449;
-  --red:#D9534F;--red-lt:#FBE7E6;--red-dk:#B03A36;
+  --green:#5CD9A0;--green-lt:#D5F5E3;--green-dk:#46BE87;
+  --red:#E8615C;--red-lt:#FCE9E8;--red-dk:#C94842;
   --gray1:#F7F8FA;--gray2:#EEF1F4;--gray3:#DADFE5;--gray4:#8792A0;--gray5:#2E3541;
   --white:#fff;--radius:12px;--radius-sm:7px;--shadow:0 2px 12px rgba(50,30,72,.08);
 }
@@ -68,7 +68,7 @@ button{font-family:inherit}
 
 .example-box{background:var(--gray1);border-left:3px solid var(--slate-lt);border-radius:0 var(--radius-sm) var(--radius-sm) 0;padding:9px 14px;margin-bottom:14px}
 .example-box .ex-lbl{font-size:.7rem;font-weight:800;color:var(--gray4);text-transform:uppercase;letter-spacing:.5px;margin-bottom:3px}
-.example-box .ex-line{font-size:.92rem;margin-top:2px}
+.example-box .ex-line{font-size:1.05rem;margin-top:4px;line-height:1.5}
 .ex-ok{color:var(--green-dk);margin-left:6px}
 
 .wordbank{display:flex;flex-wrap:wrap;gap:8px;background:var(--gray1);padding:10px;border-radius:var(--radius-sm);margin-bottom:14px;justify-content:center}
@@ -77,14 +77,17 @@ button{font-family:inherit}
 .wordbank.stack{flex-direction:column;align-items:flex-start}
 .wordbank.stack span{width:100%}
 
-.q-explain{display:none;margin:10px 0 0 38px;padding:10px 12px;border-radius:var(--radius-sm);font-size:.85rem;background:var(--gray1);border-left:3px solid var(--slate-lt)}
+.q-explain{display:none;margin:10px 0 0 38px;padding:11px 13px;border-radius:var(--radius-sm);font-size:.98rem;line-height:1.55;background:var(--gray1);border-left:3px solid var(--slate-lt)}
 .q-explain.show{display:block}
 .q-card.graded-ok .q-badge{background:var(--green-lt);color:var(--green-dk)}
 .q-card.graded-bad .q-badge{background:var(--red-lt);color:var(--red-dk)}
+.q-card.graded-blank .q-badge{background:var(--gray2);color:var(--gray4)}
 .q-card.graded-ok .q-explain{border-left-color:var(--green-dk)}
 .q-card.graded-bad .q-explain{border-left-color:var(--red-dk);background:var(--red-lt)}
+.q-card.graded-blank .q-explain{border-left-color:var(--gray4)}
 .navbtn.nok{background:var(--green);border-color:var(--green-dk);color:#fff}
 .navbtn.nbad{background:var(--red);border-color:var(--red-dk);color:#fff}
+.navbtn.nblank{background:var(--gray3);border-color:var(--gray4);color:var(--gray5)}
 .review-banner{display:none;background:var(--navy);color:#fff;text-align:center;padding:10px;font-size:.85rem;font-weight:700;position:sticky;top:52px;z-index:75}
 .review-banner.show{display:block}
 .review-banner button{background:var(--teal);color:var(--teal-txt);border:none;padding:5px 16px;border-radius:16px;font-weight:800;margin-left:10px;cursor:pointer;font-size:.8rem}
@@ -94,14 +97,14 @@ button{font-family:inherit}
 .q-head{display:flex;align-items:center;gap:10px;margin-bottom:10px}
 .q-badge{background:var(--mint);color:var(--navy);width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:.85rem;flex-shrink:0}
 .q-badge.done{background:var(--teal);color:var(--teal-txt)}
-.q-text{font-size:1.05rem;font-weight:600}
+.q-text{font-size:1.2rem;font-weight:600}
 
 img.q-photo{max-width:220px;width:100%;border-radius:var(--radius-sm);border:1px solid var(--gray3);display:block;margin:0 0 12px 38px}
 img.q-img-shared{max-width:100%;border-radius:var(--radius-sm);border:1px solid var(--gray3);display:block;margin:0 auto 14px}
 
 .radio-list{display:flex;flex-direction:column;gap:8px;margin-left:38px}
 .radio-list.horiz{flex-direction:row;flex-wrap:wrap;gap:10px}
-.radio-opt{display:flex;align-items:center;gap:8px;cursor:pointer;font-weight:600;font-size:.95rem;padding:6px 10px;border-radius:var(--radius-sm);border:2px solid transparent}
+.radio-opt{display:flex;align-items:center;gap:8px;cursor:pointer;font-weight:600;font-size:1.1rem;padding:7px 10px;border-radius:var(--radius-sm);border:2px solid transparent}
 .radio-opt:hover{background:var(--gray1)}
 .radio-opt input{position:absolute;opacity:0;width:0;height:0}
 .radio-circle{width:19px;height:19px;border-radius:50%;border:2px solid var(--gray4);flex-shrink:0;position:relative}
@@ -134,6 +137,7 @@ img.q-img-shared{max-width:100%;border-radius:var(--radius-sm);border:1px solid 
 .navgrid{display:grid;grid-template-columns:repeat(5,1fr);gap:6px}
 .navbtn{aspect-ratio:1;border-radius:6px;border:1.5px solid var(--gray3);background:#fff;font-size:.8rem;font-weight:700;cursor:pointer;color:var(--gray5)}
 .navbtn.done{background:var(--teal);border-color:var(--teal-dk);color:var(--teal-txt)}
+.navgrid-toggle{display:none}
 
 /* ============ RESULT SCREEN ============ */
 #result-screen{display:none;max-width:560px;margin:0 auto;padding:40px 20px}
@@ -162,7 +166,9 @@ img.q-img-shared{max-width:100%;border-radius:var(--radius-sm);border:1px solid 
   .navgrid{grid-template-columns:repeat(8,1fr)}
   img.q-photo{margin-left:0}
   .radio-list, .chip-list{margin-left:0}
-  .sidebar .navgrid-card{display:none}
+  .navgrid-toggle{display:flex;align-items:center;gap:4px;background:var(--mint);color:var(--navy);border:none;padding:7px 14px;border-radius:16px;font-weight:800;font-size:.78rem;cursor:pointer;white-space:nowrap}
+  .navgrid-card{display:none;position:fixed;top:52px;left:0;right:0;max-height:65vh;overflow-y:auto;background:#fff;box-shadow:0 4px 14px rgba(0,0,0,.18);z-index:71;padding:14px 16px;border-radius:0 0 14px 14px}
+  .navgrid-card.mobile-open{display:block}
   .review-banner{top:100px}
 }
 @media (max-width: 480px){
@@ -286,9 +292,9 @@ img.q-img-shared{max-width:100%;border-radius:var(--radius-sm);border:1px solid 
           <div class="part-desc">Câu hỏi 26-30: Dựa vào câu cho sẵn, hãy xác định câu bên dưới đúng hay sai.</div>
           <div class="example-box">
             <div class="ex-lbl">例如 Ví dụ</div>
-            <div class="ex-line cn" style="font-size:.88rem;color:var(--gray4)">现在是11点30分，他们已经游了20分钟了。</div>
+            <div class="ex-line cn" style="font-size:1rem;color:var(--gray4)">现在是11点30分，他们已经游了20分钟了。</div>
             <div class="ex-line cn">他们11点10分开始游泳。 <b class="ex-ok">对</b></div>
-            <div class="ex-line cn" style="font-size:.88rem;color:var(--gray4);margin-top:8px">我会跳舞，但跳得不怎么样。</div>
+            <div class="ex-line cn" style="font-size:1rem;color:var(--gray4);margin-top:8px">我会跳舞，但跳得不怎么样。</div>
             <div class="ex-line cn">我跳得非常好。 <b style="color:var(--red-dk);margin-left:6px">错</b></div>
           </div>
           <div id="read3-wrap"></div>
@@ -320,10 +326,11 @@ img.q-img-shared{max-width:100%;border-radius:var(--radius-sm);border:1px solid 
       <div class="side-card timer-box">
         <div class="tlbl">Thời gian còn lại</div>
         <div class="tval" id="timerVal">30:00</div>
+        <button class="navgrid-toggle" id="navgridToggle" onclick="toggleNavgrid()"><span id="doneCountMobile">0</span>/35 câu <span id="navgridArrow">▾</span></button>
         <button class="submit-btn" onclick="confirmSubmit()">✅ NỘP BÀI</button>
         <div class="progress-txt"><span id="doneCount">0</span>/35 câu đã làm</div>
       </div>
-      <div class="side-card navgrid-card">
+      <div class="side-card navgrid-card" id="navgridCard">
         <div class="navgrid-title">一、听力 (1-15)</div>
         <div class="navgrid" id="navgrid-listen"></div>
         <div class="navgrid-title">二、阅读 (16-35)</div>
@@ -418,6 +425,8 @@ function markDone(num){
   const nb=document.getElementById('navbtn-'+num);
   if(nb) nb.classList.add('done');
   document.getElementById('doneCount').textContent = answered.size;
+  const dcm=document.getElementById('doneCountMobile');
+  if(dcm) dcm.textContent = answered.size;
 }
 
 function renderTF(container, num, imgSrc){
@@ -465,7 +474,7 @@ function renderMC(container, num, opts){
 function renderTFwithPassage(container, num, passage, statement){
   const d=document.createElement('div');
   d.className='q-card'; d.id='q-'+num;
-  d.innerHTML=`<div class="q-text cn" style="font-size:.92rem;color:var(--gray4);margin-bottom:6px">${passage}</div>
+  d.innerHTML=`<div class="q-text cn" style="font-size:1.05rem;color:var(--gray4);margin-bottom:6px;line-height:1.5">${passage}</div>
     <div class="q-head"><span class="q-badge" id="qbadge-${num}">${num}</span><span class="q-text cn">${statement}</span></div>
     <div class="radio-list" data-num="${num}">
       <label class="radio-opt"><input type="radio" name="q${num}" value="true"><span class="radio-circle"></span>对</label>
@@ -535,10 +544,23 @@ function switchTab(which){
 }
 function jumpTo(num){
   switchTab(num<=15 ? 'listen' : 'read');
+  closeNavgridMobile();
   setTimeout(()=>{
     const el=document.getElementById('q-'+num);
     if(el) el.scrollIntoView({behavior:'smooth',block:'center'});
   },50);
+}
+function toggleNavgrid(){
+  const card=document.getElementById('navgridCard');
+  const open = card.classList.toggle('mobile-open');
+  const arrow=document.getElementById('navgridArrow');
+  if(arrow) arrow.textContent = open ? '▴' : '▾';
+}
+function closeNavgridMobile(){
+  const card=document.getElementById('navgridCard');
+  if(card) card.classList.remove('mobile-open');
+  const arrow=document.getElementById('navgridArrow');
+  if(arrow) arrow.textContent = '▾';
 }
 
 /* ============================================================
@@ -577,8 +599,9 @@ function gradeRadioGroup(arr, offset){
     const opts=document.querySelectorAll(`input[name="q${num}"]`);
     let picked=null;
     opts.forEach(o=>{ if(o.checked) picked=o.value; });
+    const wasAnswered = picked!==null;
     const correctVal = typeof it.ans==='boolean' ? String(it.ans) : it.ans;
-    const isOk = picked===correctVal;
+    const isOk = wasAnswered && picked===correctVal;
     if(isOk) correct++;
     opts.forEach(o=>{
       const label=o.closest('.radio-opt');
@@ -587,7 +610,7 @@ function gradeRadioGroup(arr, offset){
       else if(o.checked) label.classList.add('grade-bad');
       o.disabled=true;
     });
-    markGraded(num, isOk, it.exp);
+    markGraded(num, isOk, it.exp, wasAnswered);
   });
   return correct;
 }
@@ -599,7 +622,8 @@ function gradeChipGroup(arr, offset){
     const chips=list.querySelectorAll('.chip');
     let picked=null;
     chips.forEach(c=>{ if(c.classList.contains('sel')) picked=c.dataset.v; });
-    const isOk = picked===it.ans;
+    const wasAnswered = picked!==null;
+    const isOk = wasAnswered && picked===it.ans;
     if(isOk) correct++;
     chips.forEach(c=>{
       c.classList.remove('grade-ok','grade-bad');
@@ -608,21 +632,27 @@ function gradeChipGroup(arr, offset){
       c.disabled=true;
       c.style.cursor='default';
     });
-    markGraded(num, isOk, it.exp);
+    markGraded(num, isOk, it.exp, wasAnswered);
   });
   return correct;
 }
-function markGraded(num, isOk, exp){
+function markGraded(num, isOk, exp, wasAnswered){
   const card=document.getElementById('q-'+num);
-  card.classList.remove('graded-ok','graded-bad');
-  card.classList.add(isOk?'graded-ok':'graded-bad');
+  card.classList.remove('graded-ok','graded-bad','graded-blank');
+  card.classList.add(!wasAnswered ? 'graded-blank' : (isOk?'graded-ok':'graded-bad'));
   const expBox=document.getElementById('qexp-'+num);
   if(expBox && exp){
-    expBox.textContent=(isOk?'✓ ':'✕ Đáp án đúng: ')+exp;
+    expBox.textContent = !wasAnswered ? ('○ Chưa làm — Đáp án đúng: '+exp) : ((isOk?'✓ ':'✕ Đáp án đúng: ')+exp);
     expBox.classList.add('show');
   }
   const nb=document.getElementById('navbtn-'+num);
-  if(nb){ nb.classList.remove('nok','nbad'); nb.classList.add(isOk?'nok':'nbad'); }
+  if(nb){
+    nb.classList.remove('nok','nbad','nblank','done');
+    if(wasAnswered) nb.classList.add(isOk?'nok':'nbad');
+    else nb.classList.add('nblank');
+  }
+  const badge=document.getElementById('qbadge-'+num);
+  if(badge){ badge.classList.remove('done'); }
 }
 function confirmSubmit(){
   const remain=35-answered.size;
