@@ -200,20 +200,24 @@ a{text-decoration:none;color:inherit}
 
 <script>
 // ====== CHỈ SỬA Ở ĐÂY khi có bài học mới — không cần sửa gì khác trong file ======
-// Xong bài nào thì thêm 1 dòng L(số bài, tên tiếng Trung, dịch tiếng Việt) vào DONE_LESSONS.
-// Tên file (hsk3-baihoc3.0-baiN.html) và cờ done:true được TỰ ĐỘNG điền — không gõ tay.
-// Vì bạn host trên GitHub Pages (server thật) — trang này TỰ DÒ file bài mới
-// qua fetch(), không bắt buộc phải sửa tay nữa (xem detectLessons() cuối file).
-// Chỉ cần đặt đúng tên file hsk3-baihoc3.0-baiN.html rồi đẩy lên GitHub là tự mở khoá.
-// Gọi L(n, cn, vn) dưới đây CHỈ là tuỳ chọn — dùng khi muốn hiện tên bài đẹp ngay lập
-// tức (thay vì tên tạm "第N课" do tự dò), hoặc khi cần xem trước lúc chưa đẩy lên mạng.
+// Xong bài nào thì file được TỰ ĐỘNG mở khoá khi trang chủ dò thấy file đó
+// đã có thật trên server (fetch thành công) — xem detectLessons()/detectTests()
+// cuối file. KHÔNG cần khai báo tay nữa trong hầu hết trường hợp.
+// Hàm L(n, cn, vn, vocab, gram) vẫn giữ lại làm TUỲ CHỌN — chỉ dùng khi cần xem
+// trước ngay lập tức TRƯỚC KHI kịp đẩy file lên GitHub Pages (ví dụ demo cho
+// người khác xem ngay trên máy). Bình thường cứ để DONE_LESSONS rỗng thế này —
+// đẩy đúng file hsk3-baihoc3.0-baiN.html/hsk3-test-baiN.html lên GitHub Pages
+// là card tự mở khoá đúng tên bài + đúng số liệu, không "hiện trước" khi file
+// chưa thật sự có ở đó.
 const TOTAL_LESSONS = 18;
 const CN_NUM = ['','一','二','三','四','五','六','七','八','九','十','十一','十二','十三','十四','十五','十六','十七','十八'];
 function L(n, cn, vn, vocab, gram){ return {n, cn, vn, vocab: vocab||0, gram: gram||0, file:`hsk3-baihoc3.0-bai${n}.html`, done:true}; }
 
 const DONE_LESSONS = [
-  L(1, "我们去机场接你们", "Chúng tôi đi đón các bạn ở sân bay", 27, 3),
-  L(2, "你们想吃什么就点什么", "Các bạn muốn ăn gì cứ gọi món đó", 28, 3),
+  // Để rỗng có chủ đích — trang tự dò file thật trên server, không khai báo
+  // trước nữa (tránh card hiện "Xong" trong khi file chưa thật sự được đẩy
+  // lên, dễ gây nhầm lẫn). Nếu cần xem trước gấp, thêm tạm 1 dòng L(...) vào
+  // đây rồi xoá lại sau khi đã đẩy file thật lên.
 ];
 // ====== HẾT PHẦN CÓ THỂ SỬA TAY (tuỳ chọn) — bên dưới tự chạy, không cần đụng ======
 
