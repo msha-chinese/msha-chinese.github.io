@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>新HSK教程3 · Trang chủ khóa học</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --accent:#FF9600;--accent-dk:#E08600;--accent-lt:#FFE7BF;--accent-soft:#FFB84D;
+  --brand:var(--accent);--brand-dk:var(--accent-dk);--brand-lt:var(--accent-lt);--brand-soft:var(--accent-soft);
+  --error:#EA2B2B;--error-lt:#FFE1E1;--error-bright:#FF4B4B;
+  --green:#58CC02;--green-lt:#E3FFC2;--green-dk:#46A302;
+  --blue:#1CB0F6;--blue-dk:#1899D6;--blue-lt:#E0F6FF;--border:#BFE9FF;--ink:#1B1B1B;
+  --orange:var(--accent);--orange-lt:var(--accent-lt);
+  --gray1:#F9F7F7;--gray2:#F0F0F0;--gray3:#D5D8DC;--gray4:#7F8C8D;--gray5:#2C3E50;
+  --white:#FFFFFF;--navy:#112D4E;
+  --radius:16px;--radius-sm:12px;--shadow:0 2px 10px rgba(0,0,0,.09);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Inter',sans-serif;background-color:#FDFBF7;background-image:radial-gradient(circle,rgba(43,33,24,.09) 1.5px,transparent 1.5px);background-size:24px 24px;color:var(--gray5);line-height:1.6;font-size:15px;margin:0;-webkit-font-smoothing:antialiased;text-wrap:pretty}
+.cn{font-family:'Noto Sans SC',sans-serif;text-wrap:pretty}
+a{text-decoration:none;color:inherit}
+.wrap{max-width:1000px;margin:0 auto;padding:0 1.1rem 3rem}
+
+/* ---- Header (đúng cấu trúc .header thật của bai1) ---- */
+.header{background-color:#FFFDF8;position:relative;overflow:hidden;padding:.8rem 2rem 1rem;text-align:center;box-shadow:0 10px 28px -14px rgba(61,128,206,.22)}
+.ho-noise{position:absolute;inset:0;pointer-events:none;opacity:.025;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+.ho-dotgrid{position:absolute;inset:0;pointer-events:none;background-image:radial-gradient(circle,rgba(61,128,206,.09) 1px,transparent 1px);background-size:17px 17px;background-position:8px 8px}
+.header-ocean{position:absolute;inset:0;overflow:hidden;pointer-events:none}
+.ho-petal{position:absolute;top:-16px;border-radius:0 60% 0 60%;opacity:0;animation-name:hoPetalFall;animation-timing-function:linear;animation-iteration-count:infinite}
+@keyframes hoPetalFall{
+  0%{opacity:0;transform:translate(0,0) rotate(0deg)}
+  8%{opacity:.85}
+  30%{transform:translate(14px,55px) rotate(110deg)}
+  55%{transform:translate(-10px,105px) rotate(200deg)}
+  80%{transform:translate(16px,150px) rotate(300deg)}
+  92%{opacity:.75}
+  100%{opacity:0;transform:translate(-6px,190px) rotate(380deg)}
+}
+.ho-water{position:absolute;left:0;right:0;bottom:0;height:calc(6px + 68px * var(--ho-level,0));overflow:hidden;transition:height 1.4s ease;background:linear-gradient(180deg,rgba(28,176,224,.03) 0%,rgba(28,176,224,.1) 100%)}
+.ho-wave{position:absolute;left:0;bottom:0;width:200%;height:100%}
+.ho-wave-back{animation:hoFlow 22s linear infinite}
+.ho-wave-back path{fill:#7FDCF0;opacity:.2}
+.ho-wave-front{animation:hoFlowRev 14s linear infinite}
+.ho-wave-front path{fill:#1CB0E0;opacity:.26}
+@keyframes hoFlow{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@keyframes hoFlowRev{from{transform:translateX(-50%)}to{transform:translateX(0)}}
+.header-content{position:relative;z-index:1}
+.header-watermark{display:block;font-size:.85rem;font-weight:700;letter-spacing:.2em;color:rgba(61,128,206,.6);margin-bottom:.02rem}
+.header h1{font-family:'Noto Sans SC',sans-serif;font-size:1.53rem;color:var(--ink);font-weight:700;line-height:1.08;margin-bottom:.5rem;animation:hTitleShadow 4.5s ease-in-out infinite}
+@keyframes hTitleShadow{
+  0%,100%{text-shadow:0 3px 6px rgba(61,128,206,.12)}
+  50%{text-shadow:0 10px 16px rgba(61,128,206,.38)}
+}
+.header-badges{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:.55rem;justify-content:center}
+.header-badge{background:#fff;border:1px solid rgba(61,128,206,.2);color:var(--gray5);font-size:.8rem;font-weight:600;padding:.4rem 1rem;border-radius:20px;box-shadow:0 2px 8px rgba(61,128,206,.1);display:inline-flex;align-items:center;gap:.4rem}
+.header-badge svg{width:14px;height:14px;flex-shrink:0;color:var(--blue)}
+@media (prefers-reduced-motion: reduce){
+  .ho-petal{display:none}
+  .ho-wave{animation:none}
+  .header h1{animation:none}
+}
+
+/* ---- Tabs (đúng style .tab-nav/.tab-btn 7-tab-lớn thật của bai1) ---- */
+.tab-nav{background:var(--white);display:flex;justify-content:center;gap:.4rem;overflow-x:auto;scrollbar-width:none;border-bottom:1px solid var(--border);position:sticky;top:0;z-index:50;box-shadow:0 2px 8px rgba(0,0,0,.04)}
+.tab-nav::-webkit-scrollbar{display:none}
+.tab-btn{flex:0 0 auto;background:none;border:none;color:var(--gray4);font-weight:600;font-size:.88rem;padding:.85rem 1.1rem;border-bottom:3px solid transparent;white-space:nowrap;cursor:pointer;font-family:inherit;letter-spacing:.01em;transition:.18s}
+.tab-btn:hover{color:var(--ink);background:var(--gray1)}
+.tab-btn.active{color:var(--blue);border-bottom-color:var(--blue);background:transparent}
+.tab-panel{display:none}
+.tab-panel.active{display:block}
+
+/* ---- Section titles ---- */
+.sec-title{font-size:1.25rem;font-weight:700;color:var(--ink);margin:1.6rem 0 .3rem}
+.sec-sub{color:var(--gray4);font-size:.9rem;margin-bottom:1.1rem}
+
+/* ---- Lesson grid ---- */
+.lesson-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:.85rem}
+.lesson-card{background:var(--white);border-radius:var(--radius-sm);box-shadow:var(--shadow);padding:1rem .9rem;position:relative;display:flex;flex-direction:column;min-height:120px;transition:transform .15s}
+.lesson-card.unlocked{border:1.5px solid var(--border)}
+.lesson-card.unlocked:hover{transform:translateY(-3px);box-shadow:0 8px 20px rgba(28,176,246,.18)}
+.lesson-card.locked{background:var(--gray2);color:var(--gray4)}
+.lesson-num{width:34px;height:34px;border-radius:50%;background:var(--accent-lt);color:var(--accent-dk);font-weight:700;font-size:.95rem;display:flex;align-items:center;justify-content:center;margin-bottom:.6rem}
+.lesson-card.locked .lesson-num{background:var(--gray3);color:var(--gray4)}
+.lesson-title-cn{font-family:'Noto Sans SC',sans-serif;font-weight:700;font-size:1rem;color:var(--ink);margin-bottom:.15rem}
+.lesson-card.locked .lesson-title-cn{color:var(--gray4)}
+.lesson-title-vn{font-size:.78rem;color:var(--gray4);font-style:italic;flex:1}
+.lesson-card.locked .lesson-title-vn{color:var(--gray4)}
+.lesson-badge{position:absolute;top:.7rem;right:.7rem;font-size:.65rem;font-weight:700;padding:.15rem .5rem;border-radius:10px}
+.lesson-badge.done{background:var(--green-lt);color:var(--green-dk)}
+.lesson-badge.soon{background:transparent;color:var(--gray4)}
+
+/* ---- Empty state (Ôn tập / Kiểm tra / Đề thi) ---- */
+.empty-state{background:var(--white);border:1.5px dashed var(--gray3);border-radius:var(--radius);padding:2.2rem 1.4rem;text-align:center}
+.empty-state .icon{font-size:2.2rem;margin-bottom:.6rem}
+.empty-state h3{font-size:1.05rem;color:var(--ink);margin:0 0 .4rem}
+.empty-state p{color:var(--gray4);font-size:.88rem;max-width:420px;margin:0 auto;line-height:1.65}
+.review-group{background:var(--white);border-radius:var(--radius-sm);box-shadow:var(--shadow);padding:1rem 1.1rem;margin-bottom:.8rem;display:flex;justify-content:space-between;align-items:center;gap:.8rem}
+.review-group .rg-label{font-weight:700;font-size:.92rem}
+.review-group .rg-sub{font-size:.76rem;color:var(--gray4);margin-top:.15rem}
+.review-group .rg-status{font-size:.75rem;font-weight:700;color:var(--gray4);white-space:nowrap}
+
+/* ---- Footer (đúng .site-footer thật của bai1) ---- */
+.site-footer{background:var(--gray1);border-top:1px solid var(--gray2);text-align:center;padding:1.6rem 1.2rem}
+.footer-copy{font-size:.92rem;font-weight:700;color:var(--ink)}
+.footer-tagline{font-size:.82rem;color:var(--gray4);margin-top:.4rem}
+</style>
+</head>
+<body>
+
+<header class="header">
+  <div class="ho-dotgrid" aria-hidden="true"></div>
+  <div class="ho-noise" aria-hidden="true"></div>
+  <div class="header-ocean" aria-hidden="true">
+    <div class="ho-petal" style="left:6%;width:11px;height:9px;background:linear-gradient(135deg,#FCD9E5,#F7B0CB);animation-duration:6.8s;animation-delay:0s"></div>
+    <div class="ho-petal" style="left:17%;width:15px;height:12px;background:linear-gradient(135deg,#FDE1EC,#F8BFD6);animation-duration:8.2s;animation-delay:1.8s"></div>
+    <div class="ho-petal" style="left:31%;width:9px;height:7px;background:linear-gradient(135deg,#FBD3E3,#F5A9C6);animation-duration:6.2s;animation-delay:3.6s"></div>
+    <div class="ho-petal" style="left:46%;width:13px;height:10px;background:linear-gradient(135deg,#FCDCE9,#F7B4CE);animation-duration:7.4s;animation-delay:.9s"></div>
+    <div class="ho-petal" style="left:60%;width:10px;height:8px;background:linear-gradient(135deg,#FDE1EC,#F8BFD6);animation-duration:6.6s;animation-delay:5.1s"></div>
+    <div class="ho-petal" style="left:73%;width:16px;height:13px;background:linear-gradient(135deg,#FBD3E3,#F5A9C6);animation-duration:8.6s;animation-delay:2.4s"></div>
+    <div class="ho-petal" style="left:85%;width:10px;height:8px;background:linear-gradient(135deg,#FCDCE9,#F7B4CE);animation-duration:7s;animation-delay:4.5s"></div>
+    <div class="ho-petal" style="left:94%;width:12px;height:10px;background:linear-gradient(135deg,#FDE1EC,#F8BFD6);animation-duration:7.8s;animation-delay:6.2s"></div>
+    <div class="ho-water">
+      <svg class="ho-wave ho-wave-back" viewBox="0 0 840 30" preserveAspectRatio="none">
+        <path d="M0,18 Q60,6 120,18 T240,18 T360,18 T480,18 T600,18 T720,18 T840,18 L840,30 L0,30 Z"/>
+      </svg>
+      <svg class="ho-wave ho-wave-front" viewBox="0 0 840 30" preserveAspectRatio="none">
+        <path d="M0,13 Q35,23 70,13 T140,13 T210,13 T280,13 T350,13 T420,13 T490,13 T560,13 T630,13 T700,13 T770,13 T840,13 L840,30 L0,30 Z"/>
+      </svg>
+    </div>
+  </div>
+  <div class="header-content">
+    <div class="header-watermark cn">新HSK教程3</div>
+    <h1 class="cn">我们的中文学习之旅</h1>
+    <div class="header-badges">
+      <span class="header-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16v11H9l-4 4V16H4Z"/></svg><b id="statDone">1</b> / 18 bài học</span>
+      <span class="header-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4.5A2.5 2.5 0 0 1 6.5 2H20v16H6.5A2.5 2.5 0 0 0 4 20.5V4.5Z"/><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/></svg><b id="statVocab">0</b> / 500 từ vựng</span>
+      <span class="header-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 20 12 3 21 8 12 20Z"/><path d="M13 8 16 10M11 11 14 13M9 14 12 16"/></svg><b id="statGram">0</b> / 75 điểm ngữ pháp</span>
+    </div>
+  </div>
+</header>
+
+<div class="tab-nav" id="tabNav">
+  <button class="tab-btn active" onclick="showTab('tab-lessons',this)"><span class="cn">课文</span> Bài học</button>
+  <button class="tab-btn" onclick="showTab('tab-test',this)"><span class="cn">测试</span> Kiểm tra</button>
+  <button class="tab-btn" onclick="showTab('tab-review',this)"><span class="cn">复习</span> Ôn tập</button>
+  <button class="tab-btn" onclick="showTab('tab-exam',this)"><span class="cn">模拟题</span> Đề thi khác</button>
+</div>
+
+<div class="wrap">
+
+  <!-- ============ TAB: BÀI HỌC ============ -->
+  <div class="tab-panel active" id="tab-lessons">
+    <div class="sec-title">18 bài học</div>
+    <div class="sec-sub">Bấm vào bài đã hoàn thành để mở. Các bài còn lại sẽ tự động mở khoá khi hoàn thành.</div>
+    <div class="lesson-grid" id="lessonGrid"></div>
+  </div>
+
+  <!-- ============ TAB: KIỂM TRA ============ -->
+  <div class="tab-panel" id="tab-test">
+    <div class="sec-title">Đề kiểm tra theo giáo trình</div>
+    <div class="sec-sub">Gồm 18 đề kiểm tra riêng từng bài (mở khi bài tương ứng hoàn thành) và 1 bài thi thử cuối khoá tổng hợp, đều bám sát nội dung sách và có chấm điểm tự động.</div>
+    <div class="lesson-grid" id="testGrid"></div>
+  </div>
+
+  <!-- ============ TAB: ÔN TẬP ============ -->
+  <div class="tab-panel" id="tab-review">
+    <div class="sec-title">Ôn tập từ vựng &amp; ngữ pháp</div>
+    <div class="sec-sub">Ôn tập theo từng cụm bài (ví dụ: sau Bài 1–3, 4–6...), cập nhật dần khi có thêm bài học.</div>
+    <div class="review-group">
+      <div><div class="rg-label"><span class="cn">复习 1</span> <span style="font-weight:400;color:var(--gray4)">(Bài 1–3)</span></div><div class="rg-sub">Ôn từ vựng + ngữ pháp gộp 3 bài đầu</div></div>
+      <div class="rg-status">⏳ Chờ đủ bài 1–3</div>
+    </div>
+    <div class="empty-state" style="margin-top:1.2rem">
+      <div class="icon">🧩</div>
+      <h3>Các cụm ôn tập tiếp theo sẽ xuất hiện ở đây</h3>
+      <p>Mỗi khi hoàn thành thêm 3 bài học, một bài ôn tập tổng hợp mới sẽ được thêm vào mục này.</p>
+    </div>
+  </div>
+
+  <!-- ============ TAB: ĐỀ THI KHÁC ============ -->
+  <div class="tab-panel" id="tab-exam">
+    <div class="sec-title">Đề thi khác</div>
+    <div class="sec-sub">Đề thi mô phỏng HSK chính thức hoặc đề tự soạn thêm.</div>
+    <div class="empty-state">
+      <div class="icon">🎯</div>
+      <h3>Chưa có đề thi</h3>
+      <p>Mục này dành cho đề thi thử HSK hoặc đề bổ sung ngoài giáo trình — sẽ cập nhật sau.</p>
+    </div>
+  </div>
+
+</div>
+
+<footer class="site-footer">
+  <div class="footer-copy">© 2026 Kuaile Hanyu | Ms Ha - 0932293012</div>
+  <div class="footer-tagline">Tài liệu được biên soạn độc quyền phục vụ giảng dạy và học tập.</div>
+</footer>
+
+<script>
+// ====== CHỈ SỬA Ở ĐÂY khi có bài học mới — không cần sửa gì khác trong file ======
+// Xong bài nào thì thêm 1 dòng L(số bài, tên tiếng Trung, dịch tiếng Việt) vào DONE_LESSONS.
+// Tên file (hsk3-baihoc3.0-baiN.html) và cờ done:true được TỰ ĐỘNG điền — không gõ tay.
+// Vì bạn host trên GitHub Pages (server thật) — trang này TỰ DÒ file bài mới
+// qua fetch(), không bắt buộc phải sửa tay nữa (xem detectLessons() cuối file).
+// Chỉ cần đặt đúng tên file hsk3-baihoc3.0-baiN.html rồi đẩy lên GitHub là tự mở khoá.
+// Gọi L(n, cn, vn) dưới đây CHỈ là tuỳ chọn — dùng khi muốn hiện tên bài đẹp ngay lập
+// tức (thay vì tên tạm "第N课" do tự dò), hoặc khi cần xem trước lúc chưa đẩy lên mạng.
+const TOTAL_LESSONS = 18;
+const CN_NUM = ['','一','二','三','四','五','六','七','八','九','十','十一','十二','十三','十四','十五','十六','十七','十八'];
+function L(n, cn, vn, vocab, gram){ return {n, cn, vn, vocab: vocab||0, gram: gram||0, file:`hsk3-baihoc3.0-bai${n}.html`, done:true}; }
+
+const DONE_LESSONS = [
+  L(1, "我们去机场接你们", "Chúng tôi đi đón các bạn ở sân bay", 27, 3),
+  L(2, "你们想吃什么就点什么", "Các bạn muốn ăn gì cứ gọi món đó", 28, 3),
+];
+// ====== HẾT PHẦN CÓ THỂ SỬA TAY (tuỳ chọn) — bên dưới tự chạy, không cần đụng ======
+
+const doneMap = {};
+DONE_LESSONS.forEach(function(l){ doneMap[l.n] = l; });
+const LESSONS = [];
+for (let i = 1; i <= TOTAL_LESSONS; i++) {
+  LESSONS.push(doneMap[i] || {n:i, done:false});
+}
+// TESTS được xác định ĐỘC LẬP với LESSONS (dò riêng file hsk3-test-baiN.html
+// có tồn tại hay chưa) — vì bài học và bài Test có thể được đẩy lên không
+// cùng lúc. Khởi tạo true cho các bài đã khai báo tay qua L() (giả định quy
+// trình chuẩn luôn làm cặp lesson+test cùng lúc — giữ đúng trải nghiệm xem
+// trước offline như cũ), các bài còn lại khởi tạo false rồi tự dò online.
+const TESTS = [];
+for (let i = 1; i <= TOTAL_LESSONS; i++) { TESTS.push({n:i, done: !!doneMap[i]}); }
+
+function renderLessons(){
+  const grid = document.getElementById('lessonGrid');
+  grid.innerHTML = LESSONS.map(l=>{
+    if(l.done){
+      return `<a class="lesson-card unlocked" href="${l.file}">
+        <span class="lesson-badge done">✓ Xong</span>
+        <div class="lesson-num">${l.n}</div>
+        <div class="lesson-title-cn cn">${l.cn}</div>
+        <div class="lesson-title-vn">${l.vn || 'Đã mở khoá'}</div>
+      </a>`;
+    }
+    return `<div class="lesson-card locked">
+      <span class="lesson-badge soon">Sắp có</span>
+      <div class="lesson-num">${l.n}</div>
+      <div class="lesson-title-cn cn">第${CN_NUM[l.n]}课</div>
+      <div class="lesson-title-vn">Đang soạn...</div>
+    </div>`;
+  }).join('');
+
+  const doneCount = LESSONS.filter(l=>l.done).length;
+  document.getElementById('statDone').textContent = doneCount;
+  document.querySelector('.header').style.setProperty('--ho-level', (doneCount/LESSONS.length).toFixed(3));
+
+  const vocabSum = LESSONS.reduce((s,l)=> s + (l.vocab||0), 0);
+  const gramSum = LESSONS.reduce((s,l)=> s + (l.gram||0), 0);
+  document.getElementById('statVocab').textContent = vocabSum;
+  document.getElementById('statGram').textContent = gramSum;
+}
+
+function renderTests(){
+  const grid = document.getElementById('testGrid');
+  let html = TESTS.map(function(t, idx){
+    const l = LESSONS[idx];
+    if(t.done){
+      const testFile = `hsk3-test-bai${t.n}.html`;
+      return `<a class="lesson-card unlocked" href="${testFile}" target="_blank" rel="noopener">
+        <span class="lesson-badge done">✓ Có sẵn</span>
+        <div class="lesson-num">${t.n}</div>
+        <div class="lesson-title-cn cn">第${CN_NUM[t.n]}课测试</div>
+        <div class="lesson-title-vn">Kiểm tra Bài ${t.n}${l && l.vn ? ' — ' + l.vn : ''}</div>
+      </a>`;
+    }
+    return `<div class="lesson-card locked">
+      <span class="lesson-badge soon">Sắp có</span>
+      <div class="lesson-num">${t.n}</div>
+      <div class="lesson-title-cn cn">第${CN_NUM[t.n]}课测试</div>
+      <div class="lesson-title-vn">Kiểm tra Bài ${t.n}</div>
+    </div>`;
+  }).join('');
+
+  const allDone = TESTS.every(t=>t.done);
+  html += `<div class="lesson-card locked">
+    <span class="lesson-badge soon">${allDone ? 'Sắp có' : 'Cần xong 18 bài'}</span>
+    <div class="lesson-num">🎓</div>
+    <div class="lesson-title-cn cn">期末模拟考试</div>
+    <div class="lesson-title-vn">Thi thử cuối khoá</div>
+  </div>`;
+  grid.innerHTML = html;
+}
+
+function showTab(id, el){
+  document.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('#tabNav .tab-btn').forEach(b=>b.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  el.classList.add('active');
+  window.scrollTo({top:0, behavior:'instant'});
+}
+
+// ====== TỰ DÒ bài mới đã đẩy lên GitHub Pages — cơ chế chính cho "không sửa tay" ======
+// Chỉ chạy được khi mở qua http/https thật (GitHub Pages...). Mở file kiểu double-click
+// (file://) trình duyệt sẽ tự chặn fetch — lỗi này được bắt và bỏ qua an toàn, trang vẫn
+// chạy bình thường, chỉ là không tự mở khoá được lúc xem offline.
+// Dò bằng GET (không phải HEAD) để đọc được luôn nội dung, tự đếm số từ vựng/ngữ pháp
+// thật trong file — nhờ vậy badge đầu trang vẫn đúng dù bài mới chỉ được tự dò ra (chưa
+// kịp khai báo tay qua L()). Cái giá phải trả: tải nguyên file bài học (vài MB) thay vì
+// chỉ kiểm tra tồn tại — chấp nhận được vì chỉ chạy 1 lần mỗi lượt mở trang, và trình
+// duyệt tự cache lại cho lần sau.
+function extractArrayLength(text, varName){
+  const marker = 'const ' + varName + ' =';
+  const idx = text.indexOf(marker);
+  if (idx === -1) return 0;
+  const start = text.indexOf('[', idx);
+  if (start === -1) return 0;
+  let depth = 0, i = start;
+  while (i < text.length) {
+    if (text[i] === '[') depth++;
+    else if (text[i] === ']') { depth--; if (depth === 0) { i++; break; } }
+    i++;
+  }
+  try { return JSON.parse(text.slice(start, i)).length; }
+  catch(e) { return 0; }
+}
+// Đọc luôn tên bài (chữ Hán + dịch Việt) trực tiếp từ HTML của file bài học —
+// nhờ vậy tự dò là ĐỦ để hiện đúng tên bài, không cần khai báo tay qua L() nữa.
+// Nếu không tìm thấy (file đổi cấu trúc header) thì trả về rỗng, code gọi sẽ
+// tự dùng tên tạm "第N课" như trước, không crash.
+function extractTagText(text, pattern){
+  const m = text.match(pattern);
+  return m ? m[1].trim() : '';
+}
+function detectLessons(){
+  if (typeof fetch !== 'function') return; // môi trường không hỗ trợ fetch — bỏ qua an toàn
+  LESSONS.forEach(function(l, idx){
+    if (l.done) return; // đã biết chắc là xong (qua L() thủ công) thì khỏi dò lại
+    const file = `hsk3-baihoc3.0-bai${l.n}.html`;
+    fetch(file).then(function(res){
+      if (!res.ok) return null;
+      return res.text();
+    }).then(function(text){
+      if (!text) return;
+      const cnTitle = extractTagText(text, /<h1 class="cn">([^<]+)<\/h1>/);
+      const vnTitle = extractTagText(text, /<div class="header-vn">([^<]+)<\/div>/);
+      LESSONS[idx] = {
+        n: l.n,
+        cn: cnTitle || `第${CN_NUM[l.n]}课`,
+        vn: vnTitle || '',
+        file: file, done: true,
+        vocab: extractArrayLength(text, 'VOCAB'),
+        gram: extractArrayLength(text, 'GRAMMAR')
+      };
+      renderLessons();
+      renderTests();
+    }).catch(function(){ /* file:// hoặc bài thật sự chưa có — giữ nguyên trạng thái khoá */ });
+  });
+}
+// Dò riêng file hsk3-test-baiN.html — CHỈ kiểm tra TỒN TẠI (HEAD, không tải
+// nội dung, vì renderTests() không cần đọc gì bên trong file Test cả) — nhẹ
+// hơn hẳn detectLessons(). Chạy cho TẤT CẢ 18 số bài, không phụ thuộc bài
+// học tương ứng đã xong hay chưa — 2 loại file được coi là hoàn toàn độc lập.
+function detectTests(){
+  if (typeof fetch !== 'function') return;
+  TESTS.forEach(function(t, idx){
+    if (t.done) return; // đã biết chắc là xong (qua L() thủ công) thì khỏi dò lại
+    const file = `hsk3-test-bai${t.n}.html`;
+    fetch(file, {method:'HEAD'}).then(function(res){
+      if (!res.ok) return;
+      TESTS[idx] = {n: t.n, done: true};
+      renderTests();
+    }).catch(function(){ /* file:// hoặc chưa có file Test — giữ trạng thái khoá */ });
+  });
+}
+renderLessons();
+renderTests();
+detectLessons();
+detectTests();
+</script>
+</body>
+</html>
